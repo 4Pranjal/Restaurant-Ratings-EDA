@@ -1,0 +1,41 @@
+This code performs exploratory data analysis (EDA) on a dataset from Kaggle related to restaurants and their ratings. It uses Python's pandas, numpy, matplotlib, and seaborn libraries for data manipulation, visualization, and analysis. The goal is to gain insights into the dataset's features and their relationships.
+
+Let's break down the code step by step:
+
+1. **Importing Libraries:** The necessary libraries such as pandas, numpy, matplotlib, and seaborn are imported.
+
+2. **Loading the Dataset:** The dataset named "zomato.csv" is loaded using pandas into a DataFrame named `df`. The `encoding` parameter is set to 'latin-1' to handle the encoding.
+
+3. **Viewing the First Rows:** The first few rows of the DataFrame are displayed using `df.head()` to get an initial sense of the data.
+
+4. **Viewing Column Names:** The column names of the DataFrame are displayed using `df.columns`.
+
+5. **Viewing Dataset Information:** Information about the dataset, including the number of non-null values and data types, is displayed using `df.info()`.
+
+6. **Descriptive Statistics:** Descriptive statistics about the numerical columns of the dataset are displayed using `df.describe()`.
+
+7. **Checking Missing Values:** The presence of missing values in the dataset is checked using `df.isnull().sum()`. The code also demonstrates another way to find missing values using a list comprehension.
+
+8. **Heatmap of Missing Values:** A heatmap is created using seaborn's `sns.heatmap()` to visualize missing values in the dataset. However, due to the low number of missing values (only 9), the heatmap might not show distinct patterns.
+
+9. **Country Data Merging:** Additional information about countries is loaded from an Excel file "Country-Code.xlsx" into a DataFrame named `df_country`. The two DataFrames, `df` and `df_country`, are merged using `pd.merge()` to incorporate country-related information into the main DataFrame named `final_df`.
+
+10. **Data Types and Columns:** The data types of columns in `final_df` are checked using `final_df.dtypes`.
+
+11. **Country Value Counts:** The value counts of different countries in the dataset are counted using `final_df.Country.value_counts()`.
+
+12. **Creating Pie Charts:** Pie charts are created to visually represent the distribution of restaurant data among different countries. The `plt.pie()` function is used to create the charts, and the top 3 countries are highlighted using the `country_val[:3]` slicing.
+
+13. **Grouping and Aggregation:** The dataset is grouped based on the aggregate rating, rating color, and rating text using `final_df.groupby()` to analyze the distribution of different ratings.
+
+14. **Bar Plots:** Bar plots are created to visualize the relationship between the aggregate rating and the number of restaurants with that rating. Seaborn's `sns.barplot()` function is utilized.
+
+15. **Count Plot:** A count plot is created to visualize the distribution of different rating colors using `sns.countplot()`.
+
+16. **Countries with Zero Queries:** Countries with zero queries (white rating color) are identified using a query to filter the dataset.
+
+17. **Currency and Online Delivery Analysis:** The relationships between countries and the currencies they use, as well as countries with online delivery options, are analyzed using grouping and aggregation.
+
+18. **City Distribution Pie Chart:** A pie chart is created to show the distribution of restaurants among different cities. The top 5 cities are displayed.
+
+This code demonstrates various aspects of exploratory data analysis, including handling missing values, visualizing distributions, and exploring relationships between different features in the dataset.
